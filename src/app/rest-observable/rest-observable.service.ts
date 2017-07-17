@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions, URLSearchParams } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/catch';
@@ -66,8 +66,16 @@ export class RestObservableService {
   patchPosts(param: any): Observable<any> {
     let body = JSON.stringify(param);
     return this.http
-        .patch(this.baseUrl + '/posts/2', body, this.options)
-        .map(this.extractData)
-        .catch(this.handleError);
-    }
+      .patch(this.baseUrl + '/posts/2', body, this.options)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  // DELETE
+  deletePosts(): Observable<any> {    
+    return this.http
+      .delete(this.baseUrl + "/posts/1", this.options)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
 }

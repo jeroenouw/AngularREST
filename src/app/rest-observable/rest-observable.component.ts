@@ -11,6 +11,7 @@ export class RestObservableComponent implements OnInit {
   postPosts: string;
   putPosts: string;
   patchPosts: string;
+  deletePosts: string;
 
   errorMessage: string;
 
@@ -65,6 +66,16 @@ export class RestObservableComponent implements OnInit {
         data => this.patchPosts = JSON.stringify(data),
         error => this.errorMessage = <any>error,
         () => console.log("Patch posts finished")
+      );
+  }
+
+  // DELETE
+  onDeletePosts() {
+    this.roservice.deletePosts()
+      .subscribe(
+        data => this.deletePosts = JSON.stringify(data),
+        error => this.errorMessage = <any>error,
+        () => console.log("Delete post finished")
       );
   }
 
