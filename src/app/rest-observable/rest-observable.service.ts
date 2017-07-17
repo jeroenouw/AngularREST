@@ -44,11 +44,26 @@ export class RestObservableService {
   }   
     
   postPosts(param: any): Observable<any> {
-      let body = JSON.stringify(param);
-      return this.http
-        .post(this.baseUrl + '/posts', body, this.options)
-        .map(this.extractData)
-        .catch(this.handleError);
+    let body = JSON.stringify(param);
+    return this.http
+      .post(this.baseUrl + '/posts', body, this.options)
+      .map(this.extractData)
+      .catch(this.handleError);
   }
 
+  putPosts(param: any): Observable<any> {
+    let body = JSON.stringify(param);
+    return this.http
+      .put(this.baseUrl + '/posts/1', body, this.options)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  patchPosts(param: any): Observable<any> {
+    let body = JSON.stringify(param);
+    return this.http
+        .patch(this.baseUrl + '/posts/2', body, this.options)
+        .map(this.extractData)
+        .catch(this.handleError);
+    }
 }
