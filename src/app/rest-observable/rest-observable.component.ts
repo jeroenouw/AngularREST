@@ -30,7 +30,16 @@ export class RestObservableComponent implements OnInit {
       .subscribe(
         data => this.displayComments = JSON.stringify(data),
         error => this.errorMessage = <any>error,
-        () => console.log("Get posts finished")
+        () => console.log("Get specific comments finished")
+      );
+  }
+
+  onPostPosts() {
+    this.roservice.postPosts({ userId: '49', id: '48', title: 'new title', body: 'new body text'})
+      .subscribe(
+        data => this.displayComments = JSON.stringify(data),
+        error => this.errorMessage = <any>error,
+        () => console.log("Post posts finished")
       );
   }
 

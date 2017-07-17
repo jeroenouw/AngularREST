@@ -9,6 +9,7 @@ import 'rxjs/add/operator/map';
 export class RestObservableService {
   headers: Headers;
   options: RequestOptions;
+  
   baseUrl = 'https://jsonplaceholder.typicode.com';
 
   constructor(private http: Http) {         
@@ -40,6 +41,14 @@ export class RestObservableService {
       .get(this.baseUrl + '/posts/3/comments', this.options)
       .map(this.extractData)
       .catch(this.handleError);
+  }   
+    
+  postPosts(param: any): Observable<any> {
+      let body = JSON.stringify(param);
+      return this.http
+        .post(this.baseUrl + '/posts', body, this.options)
+        .map(this.extractData)
+        .catch(this.handleError);
   }
 
 }
