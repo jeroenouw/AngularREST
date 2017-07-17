@@ -6,10 +6,10 @@ import { RestObservableService } from './rest-observable.service';
   templateUrl: './rest-observable.component.html'
 })
 export class RestObservableComponent implements OnInit {
-  displayPosts: string;
-  displayComments: string;
-  displayUsers: string;
-  displayUsersPosts: string;
+  getPosts: string;
+  getComments: string;
+  getUsers: string;
+  getUsersPosts: string;
   postPosts: string;
   putPosts: string;
   patchPosts: string;
@@ -26,7 +26,7 @@ export class RestObservableComponent implements OnInit {
   onGetPosts() {
     this.roservice.getPosts()
       .subscribe(
-        data => this.displayPosts = JSON.stringify(data),
+        data => this.getPosts = JSON.stringify(data),
         error => this.errorMessage = <any>error,
         () => console.log("Get posts finished")
       );
@@ -35,7 +35,7 @@ export class RestObservableComponent implements OnInit {
   onGetSpecificComments() {
     this.roservice.getSpecificComments()
       .subscribe(
-        data => this.displayComments = JSON.stringify(data),
+        data => this.getComments = JSON.stringify(data),
         error => this.errorMessage = <any>error,
         () => console.log("Get specific comments finished")
       );
@@ -44,7 +44,7 @@ export class RestObservableComponent implements OnInit {
   onGetUsers() {
     this.roservice.getUsers()
       .subscribe(
-        data => this.displayUsers = JSON.stringify(data),
+        data => this.getUsers = JSON.stringify(data),
         error => this.errorMessage = <any>error,
         () => console.log("Get users finished")
       );
@@ -53,7 +53,7 @@ export class RestObservableComponent implements OnInit {
   onGetUsersPosts() {
     this.roservice.getUsersPosts()
       .subscribe(
-        data => this.displayUsersPosts = JSON.stringify(data),
+        data => this.getUsersPosts = JSON.stringify(data),
         error => this.errorMessage = <any>error,
         () => console.log("Get users' posts finished")
       );

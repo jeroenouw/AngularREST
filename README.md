@@ -1,3 +1,3 @@
-# Angular | REST | Observables
+# Angular REST API example with observables
 
 In progess.

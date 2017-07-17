@@ -1,31 +1,38 @@
-<button (click)="onGetPosts()">Get - posts</button>
-{{displayPosts}}
+<md-card>
+  <!-- GET -->
+  <button md-raised-button (click)="onGetPosts()">Get - posts</button>
+  {{getPosts}}
 
-<button (click)="onGetSpecificComments()">Get - specific comments</button>
-{{displayComments}}
+  <button md-raised-button (click)="onGetSpecificComments()">Get - specific comments</button>
+  {{getComments}}
 
-<button (click)="onGetUsers()">Get - users</button>
-{{displayUsers}}
+  <button md-raised-button (click)="onGetUsers()">Get - users</button>
+  {{getUsers}}
 
-<button (click)="onGetUsersPosts()">Get - users' posts</button>
-{{displayUsersPosts}}
+  <button md-raised-button (click)="onGetUsersPosts()">Get - users' posts</button>
+  {{getUsersPosts}}
 
-<br /><br />
+  <br /><br />
 
-<button (click)="onPostPosts()">Post - posts</button>
-{{postPosts}}
+  <!-- POST -->
+  <button md-raised-button (click)="onPostPosts()">Post - posts</button>
+  {{postPosts}}
 
-<br /><br />
+  <br /><br />
 
-<button (click)="onPutPosts()">Put - posts</button>
-{{putPosts}}
+  <!-- PUT -->
+  <button md-raised-button (click)="onPutPosts()">Put - posts</button>
+  {{putPosts}}
 
-<br /><br />
+  <br /><br />
 
-<button (click)="onPatchPosts()">Patch - posts</button>
-{{patchPosts}}
+  <!-- PATCH -->
+  <button md-raised-button (click)="onPatchPosts()">Patch - posts</button>
+  {{patchPosts}}
 
-<br /><br />
+  <br /><br />
 
-<button (click)="onDeletePosts()">Delete - posts</button>
-{{deletePosts}}
+  <!-- DELETE -->
+  <button md-raised-button (click)="onDeletePosts()">Delete - posts</button>
+  {{deletePosts}}
+</md-card>
