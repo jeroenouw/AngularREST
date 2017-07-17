@@ -29,6 +29,7 @@ export class RestObservableService {
     return Observable.throw(errMsg);
   }
  
+  // GET
   getPosts(): Observable<any>{
     return this.http
       .get(this.baseUrl + '/posts', this.options)
@@ -42,7 +43,8 @@ export class RestObservableService {
       .map(this.extractData)
       .catch(this.handleError);
   }   
-    
+ 
+  // POST   
   postPosts(param: any): Observable<any> {
     let body = JSON.stringify(param);
     return this.http
@@ -50,7 +52,8 @@ export class RestObservableService {
       .map(this.extractData)
       .catch(this.handleError);
   }
-
+ 
+  // PUT
   putPosts(param: any): Observable<any> {
     let body = JSON.stringify(param);
     return this.http
@@ -59,6 +62,7 @@ export class RestObservableService {
       .catch(this.handleError);
   }
 
+  // PATCH
   patchPosts(param: any): Observable<any> {
     let body = JSON.stringify(param);
     return this.http

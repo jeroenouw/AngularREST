@@ -19,6 +19,7 @@ export class RestObservableComponent implements OnInit {
   ngOnInit() {
   }
 
+  // GET
   onGetPosts() {
     this.roservice.getPosts()
       .subscribe(
@@ -27,16 +28,17 @@ export class RestObservableComponent implements OnInit {
         () => console.log("Get posts finished")
       );
   }
-
+    
   onGetSpecificComments() {
     this.roservice.getSpecificComments()
       .subscribe(
-        data => this.postPosts = JSON.stringify(data),
+        data => this.displayComments = JSON.stringify(data),
         error => this.errorMessage = <any>error,
         () => console.log("Get specific comments finished")
       );
   }
 
+  // POST
   onPostPosts() {
     this.roservice.postPosts({userId: '49', id: '48', title: 'new title', body: 'new body text'})
       .subscribe(
@@ -46,6 +48,7 @@ export class RestObservableComponent implements OnInit {
       );
   }
 
+  // PUT
   onPutPosts() {
     this.roservice.putPosts({userId: '23', id: '9', title: 'new title 2', body: 'new body text 2'})
       .subscribe(
@@ -55,6 +58,7 @@ export class RestObservableComponent implements OnInit {
       );
   }
 
+  // PATCH
   onPatchPosts() {
     this.roservice.patchPosts({userId: '43', id: '12', title: 'new title 3', body: 'new body text 3'})
       .subscribe(
