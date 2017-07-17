@@ -34,5 +34,12 @@ export class RestObservableService {
       .map(this.extractData)
       .catch(this.handleError);
   }
+ 
+  getSpecificComments(): Observable<any>{
+    return this.http
+      .get(this.baseUrl + '/posts/3/comments', this.options)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
 
 }

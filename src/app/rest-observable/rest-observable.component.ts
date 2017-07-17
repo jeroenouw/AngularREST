@@ -6,7 +6,9 @@ import { RestObservableService } from './rest-observable.service';
   templateUrl: './rest-observable.component.html'
 })
 export class RestObservableComponent implements OnInit {
-  displayData: string;
+  displayPosts: string;
+  displayComments: string;
+
   errorMessage: string;
 
   constructor(private roservice: RestObservableService) { }
@@ -17,7 +19,16 @@ export class RestObservableComponent implements OnInit {
   onGetPosts() {
     this.roservice.getPosts()
       .subscribe(
-        data => this.displayData = JSON.stringify(data),
+        data => this.displayPosts = JSON.stringify(data),
+        error => this.errorMessage = <any>error,
+        () => console.log("Get posts finished")
+      );
+  }
+
+  onGetSpecificComments() {
+    this.roservice.getSpecificComments()
+      .subscribe(
+        data => this.displayComments = JSON.stringify(data),
         error => this.errorMessage = <any>error,
         () => console.log("Get posts finished")
       );
