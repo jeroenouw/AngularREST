@@ -8,6 +8,8 @@ import { RestObservableService } from './rest-observable.service';
 export class RestObservableComponent implements OnInit {
   displayPosts: string;
   displayComments: string;
+  displayUsers: string;
+  displayUsersPosts: string;
   postPosts: string;
   putPosts: string;
   patchPosts: string;
@@ -36,6 +38,24 @@ export class RestObservableComponent implements OnInit {
         data => this.displayComments = JSON.stringify(data),
         error => this.errorMessage = <any>error,
         () => console.log("Get specific comments finished")
+      );
+  }
+    
+  onGetUsers() {
+    this.roservice.getUsers()
+      .subscribe(
+        data => this.displayUsers = JSON.stringify(data),
+        error => this.errorMessage = <any>error,
+        () => console.log("Get users finished")
+      );
+  }
+    
+  onGetUsersPosts() {
+    this.roservice.getUsersPosts()
+      .subscribe(
+        data => this.displayUsersPosts = JSON.stringify(data),
+        error => this.errorMessage = <any>error,
+        () => console.log("Get users' posts finished")
       );
   }
 

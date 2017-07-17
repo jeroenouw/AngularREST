@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
+import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
@@ -42,7 +43,21 @@ export class RestObservableService {
       .get(this.baseUrl + '/posts/3/comments', this.options)
       .map(this.extractData)
       .catch(this.handleError);
-  }   
+  }  
+ 
+  getUsers(): Observable<any>{
+    return this.http
+      .get(this.baseUrl + '/users', this.options)
+      .map(this.extractData)
+      .catch(this.handleError);
+  } 
+ 
+  getUsersPosts(): Observable<any>{
+    return this.http
+      .get(this.baseUrl + '/users/1/posts', this.options)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }  
  
   // POST   
   postPosts(param: any): Observable<any> {
