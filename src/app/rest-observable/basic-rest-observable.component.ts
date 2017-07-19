@@ -1,15 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { RestObservableService } from './rest-observable.service';
-import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-rest-observable',
-  templateUrl: './rest-observable.component.html',
-  styles: ['li { list-style-type: none; }']
+  templateUrl: './rest-observable.component.html'
 })
 export class RestObservableComponent implements OnInit {
-  // getPosts = [];
-  getPosts: Observable<any>;
+  getPosts: string;
   getComments: string;
   getUsers: string;
   getUsersPosts: string;
@@ -27,12 +24,12 @@ export class RestObservableComponent implements OnInit {
 
   // GET
   onGetPosts() {
-    this.getPosts = this.roservice.getPosts()      
-      // .subscribe(
-       // data => this.getComments = data,
-       // error => this.errorMessage = <any>error,
-       // () => console.log("Get specific comments finished")
-      // );
+    this.roservice.getPosts()
+      .subscribe(
+        data => this.getPosts = JSON.stringify(data),
+        error => this.errorMessage = <any>error,
+        () => console.log("Get posts finished")
+      );
   }
     
   onGetSpecificComments() {

@@ -1,12 +1,7 @@
 <md-card>
   <!-- GET -->
   <button md-raised-button (click)="onGetPosts()">Get - posts</button>
- <li *ngFor="let post of getPosts | async">
-    {{post.userId}}
-    {{post.id}}
-    {{post.title}}
-    {{post.body}}
-  </li>
+  {{getPosts}}
 
   <button md-raised-button (click)="onGetSpecificComments()">Get - specific comments</button>
   {{getComments}}
@@ -27,7 +22,7 @@
 
   <!-- PUT -->
   <button md-raised-button (click)="onPutPosts()">Put - posts</button>
-   {{putPosts}}
+  {{putPosts}}
 
   <br /><br />
 
