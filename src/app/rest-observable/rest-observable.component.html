@@ -1,35 +1,35 @@
 <md-card>
   <!-- GET -->
   <button md-raised-button (click)="onGetPosts()">Get - All posts</button>
-  <li *ngFor="let post of getPosts | async">
-    {{post.userId}}
-    {{post.id}}
-    {{post.title}}
-    {{post.body}}
+  <li *ngFor="let get of getPosts | async">
+    {{get.userId}}
+    {{get.id}}
+    {{get.title}}
+    {{get.body}}
   </li>
 
   <button md-raised-button (click)="onGetSpecificComments()">Get - specific comments</button>
-  <li *ngFor="let post of getComments | async">
-    {{post.userId}}
-    {{post.id}}
-    {{post.title}}
-    {{post.body}}
+  <li *ngFor="let get of getComments | async">
+    {{get.userId}}
+    {{get.id}}
+    {{get.title}}
+    {{get.body}}
   </li>
 
   <button md-raised-button (click)="onGetUsers()">Get - users</button>
-  <li *ngFor="let post of getUsers | async">
-    {{post.userId}}
-    {{post.id}}
-    {{post.title}}
-    {{post.body}}
+  <li *ngFor="let get of getUsers | async">
+    {{get.userId}}
+    {{get.id}}
+    {{get.title}}
+    {{get.body}}
   </li>
 
   <button md-raised-button (click)="onGetUsersPosts()">Get - users' posts</button>
-  <li *ngFor="let post of getUsersPosts | async">
-    {{post.userId}}
-    {{post.id}}
-    {{post.title}}
-    {{post.body}}
+  <li *ngFor="let get of getUsersPosts | async">
+    {{get.userId}}
+    {{get.id}}
+    {{get.title}}
+    {{get.body}}
   </li>
 
   <br /><br />
