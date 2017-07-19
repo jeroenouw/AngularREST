@@ -1,7 +1,7 @@
 <md-card>
   <!-- GET -->
-  <button md-raised-button (click)="onGetPosts()">Get - posts</button>
- <li *ngFor="let post of getPosts | async">
+  <button md-raised-button (click)="onGetPosts()">Get - All posts</button>
+  <li *ngFor="let post of getPosts | async">
     {{post.userId}}
     {{post.id}}
     {{post.title}}
@@ -9,13 +9,28 @@
   </li>
 
   <button md-raised-button (click)="onGetSpecificComments()">Get - specific comments</button>
-  {{getComments}}
+  <li *ngFor="let post of getComments | async">
+    {{post.userId}}
+    {{post.id}}
+    {{post.title}}
+    {{post.body}}
+  </li>
 
   <button md-raised-button (click)="onGetUsers()">Get - users</button>
-  {{getUsers}}
+  <li *ngFor="let post of getUsers | async">
+    {{post.userId}}
+    {{post.id}}
+    {{post.title}}
+    {{post.body}}
+  </li>
 
   <button md-raised-button (click)="onGetUsersPosts()">Get - users' posts</button>
-  {{getUsersPosts}}
+  <li *ngFor="let post of getUsersPosts | async">
+    {{post.userId}}
+    {{post.id}}
+    {{post.title}}
+    {{post.body}}
+  </li>
 
   <br /><br />
 
@@ -27,7 +42,7 @@
 
   <!-- PUT -->
   <button md-raised-button (click)="onPutPosts()">Put - posts</button>
-   {{putPosts}}
+  {{putPosts}}
 
   <br /><br />
 
@@ -40,4 +55,5 @@
   <!-- DELETE -->
   <button md-raised-button (click)="onDeletePosts()">Delete - posts</button>
   {{deletePosts}}
+  
 </md-card>

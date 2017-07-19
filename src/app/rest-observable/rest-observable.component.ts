@@ -5,14 +5,14 @@ import { Observable } from 'rxjs/Observable';
 @Component({
   selector: 'app-rest-observable',
   templateUrl: './rest-observable.component.html',
-  styles: ['li { list-style-type: none; }']
+  styles: ['li { list-style-type: none; padding: 20px 0; }']
 })
 export class RestObservableComponent implements OnInit {
-  // getPosts = [];
+  // getPosts = []; <--- Without async pipe
   getPosts: Observable<any>;
-  getComments: string;
-  getUsers: string;
-  getUsersPosts: string;
+  getComments: Observable<any>;
+  getUsers: Observable<any>;
+  getUsersPosts: Observable<any>;
   postPosts: string;
   putPosts: string;
   patchPosts: string;
@@ -36,30 +36,15 @@ export class RestObservableComponent implements OnInit {
   }
     
   onGetSpecificComments() {
-    this.roservice.getSpecificComments()
-      .subscribe(
-        data => this.getComments = JSON.stringify(data),
-        error => this.errorMessage = <any>error,
-        () => console.log("Get specific comments finished")
-      );
+    this.getComments = this.roservice.getSpecificComments()
   }
     
   onGetUsers() {
-    this.roservice.getUsers()
-      .subscribe(
-        data => this.getUsers = JSON.stringify(data),
-        error => this.errorMessage = <any>error,
-        () => console.log("Get users finished")
-      );
+    this.getUsers = this.roservice.getUsers()
   }
     
   onGetUsersPosts() {
-    this.roservice.getUsersPosts()
-      .subscribe(
-        data => this.getUsersPosts = JSON.stringify(data),
-        error => this.errorMessage = <any>error,
-        () => console.log("Get users' posts finished")
-      );
+    this.getUsersPosts = this.roservice.getUsersPosts()
   }
 
   // POST
