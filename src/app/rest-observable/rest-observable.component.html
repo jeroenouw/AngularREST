@@ -1,31 +1,31 @@
 <md-card>
   <!-- GET -->
-  <button md-raised-button (click)="onGetPosts()">Get - All posts</button>
-  <li *ngFor="let get of getPosts | async">
+  <button md-raised-button (click)='onGetPosts()'>Get - All posts</button>
+  <li *ngFor='let get of getPosts | async'>
     {{get.userId}}
     {{get.id}}
     {{get.title}}
     {{get.body}}
   </li>
 
-  <button md-raised-button (click)="onGetSpecificComments()">Get - specific comments</button>
-  <li *ngFor="let get of getComments | async">
+  <button md-raised-button (click)='onGetSpecificComments()'>Get - specific comments</button>
+  <li *ngFor='let get of getComments | async'>
     {{get.userId}}
     {{get.id}}
     {{get.title}}
     {{get.body}}
   </li>
 
-  <button md-raised-button (click)="onGetUsers()">Get - users</button>
-  <li *ngFor="let get of getUsers | async">
+  <button md-raised-button (click)='onGetUsers()'>Get - users</button>
+  <li *ngFor='let get of getUsers | async'>
     {{get.userId}}
     {{get.id}}
     {{get.title}}
     {{get.body}}
   </li>
 
-  <button md-raised-button (click)="onGetUsersPosts()">Get - users' posts</button>
-  <li *ngFor="let get of getUsersPosts | async">
+  <button md-raised-button (click)='onGetUsersPosts()'>Get - users' posts</button>
+  <li *ngFor='let get of getUsersPosts | async'>
     {{get.userId}}
     {{get.id}}
     {{get.title}}
@@ -35,25 +35,25 @@
   <br /><br />
 
   <!-- POST -->
-  <button md-raised-button (click)="onPostPosts()">Post - posts</button>
+  <button md-raised-button (click)='onPostPosts()'>Post - posts</button>
   {{postPosts}}
 
   <br /><br />
 
   <!-- PUT -->
-  <button md-raised-button (click)="onPutPosts()">Put - posts</button>
+  <button md-raised-button (click)='onPutPosts()'>Put - posts</button>
   {{putPosts}}
 
   <br /><br />
 
   <!-- PATCH -->
-  <button md-raised-button (click)="onPatchPosts()">Patch - posts</button>
+  <button md-raised-button (click)='onPatchPosts()'>Patch - posts</button>
   {{patchPosts}}
 
   <br /><br />
 
   <!-- DELETE -->
-  <button md-raised-button (click)="onDeletePosts()">Delete - posts</button>
+  <button md-raised-button (click)='onDeletePosts()'>Delete - posts</button>
   {{deletePosts}}
   
 </md-card>

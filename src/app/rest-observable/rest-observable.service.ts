@@ -10,67 +10,67 @@ import 'rxjs/add/operator/map';
 export class RestObservableService {
   headers: Headers;
   options: RequestOptions;
-  
+
   baseUrl = 'https://jsonplaceholder.typicode.com';
 
-  constructor(private http: Http) {         
+  constructor(private http: Http) {
     this.headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'q=0.8;application/json;q=0.9' });
     this.options = new RequestOptions({ headers: this.headers });
   }
- 
+
   private extractData(res: Response) {
-    let body = res.json();
+    const body = res.json();
     return body || {};
-  } 
+  }
 
   private handleError (error: any) {
-    let errMsg = (error.message) ? error.message :
+    const errMsg = (error.message) ? error.message :
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
- 
+
   // GET
-  getPosts(): Observable<any>{
+  getPosts(): Observable<any> {
     return this.http
       .get(this.baseUrl + '/posts', this.options)
       .map(this.extractData)
       .catch(this.handleError);
   }
- 
-  getSpecificComments(): Observable<any>{
+
+  getSpecificComments(): Observable<any> {
     return this.http
       .get(this.baseUrl + '/posts/3/comments', this.options)
       .map(this.extractData)
       .catch(this.handleError);
-  }  
- 
-  getUsers(): Observable<any>{
+  }
+
+  getUsers(): Observable<any> {
     return this.http
       .get(this.baseUrl + '/users', this.options)
       .map(this.extractData)
       .catch(this.handleError);
-  } 
- 
-  getUsersPosts(): Observable<any>{
+  }
+
+  getUsersPosts(): Observable<any> {
     return this.http
       .get(this.baseUrl + '/users/1/posts', this.options)
       .map(this.extractData)
       .catch(this.handleError);
-  }  
- 
-  // POST   
+  }
+
+  // POST
   postPosts(param: any): Observable<any> {
-    let body = JSON.stringify(param);
+    const body = JSON.stringify(param);
     return this.http
       .post(this.baseUrl + '/posts', body, this.options)
       .map(this.extractData)
       .catch(this.handleError);
   }
- 
+
   // PUT
   putPosts(param: any): Observable<any> {
-    let body = JSON.stringify(param);
+    const body = JSON.stringify(param);
     return this.http
       .put(this.baseUrl + '/posts/1', body, this.options)
       .map(this.extractData)
@@ -79,7 +79,7 @@ export class RestObservableService {
 
   // PATCH
   patchPosts(param: any): Observable<any> {
-    let body = JSON.stringify(param);
+    const body = JSON.stringify(param);
     return this.http
       .patch(this.baseUrl + '/posts/2', body, this.options)
       .map(this.extractData)
@@ -87,7 +87,7 @@ export class RestObservableService {
   }
 
   // DELETE
-  deletePosts(): Observable<any> {    
+  deletePosts(): Observable<any> {
     return this.http
       .delete(this.baseUrl + "/posts/1", this.options)
       .map(this.extractData)

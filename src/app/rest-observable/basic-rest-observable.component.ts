@@ -28,16 +28,16 @@ export class RestObservableComponent implements OnInit {
       .subscribe(
         data => this.getPosts = JSON.stringify(data),
         error => this.errorMessage = <any>error,
-        () => console.log("Get posts finished")
+        () => console.log('Get posts finished')
       );
   }
-    
+
   onGetSpecificComments() {
     this.roservice.getSpecificComments()
       .subscribe(
         data => this.getComments = JSON.stringify(data),
         error => this.errorMessage = <any>error,
-        () => console.log("Get specific comments finished")
+        () => console.log('Get specific comments finished')
       );
   }
     
@@ -46,7 +46,7 @@ export class RestObservableComponent implements OnInit {
       .subscribe(
         data => this.getUsers = JSON.stringify(data),
         error => this.errorMessage = <any>error,
-        () => console.log("Get users finished")
+        () => console.log('Get users finished')
       );
   }
     
@@ -55,7 +55,7 @@ export class RestObservableComponent implements OnInit {
       .subscribe(
         data => this.getUsersPosts = JSON.stringify(data),
         error => this.errorMessage = <any>error,
-        () => console.log("Get users' posts finished")
+        () => console.log('Get users posts finished')
       );
   }
 
@@ -65,7 +65,7 @@ export class RestObservableComponent implements OnInit {
       .subscribe(
         data => this.postPosts = JSON.stringify(data),
         error => this.errorMessage = <any>error,
-        () => console.log("Post posts finished")
+        () => console.log('Post posts finished')
       );
   }
 
@@ -75,7 +75,7 @@ export class RestObservableComponent implements OnInit {
       .subscribe(
         data => this.putPosts = JSON.stringify(data),
         error => this.errorMessage = <any>error,
-        () => console.log("Put posts finished")
+        () => console.log('Put posts finished')
       );
   }
 
@@ -85,7 +85,7 @@ export class RestObservableComponent implements OnInit {
       .subscribe(
         data => this.patchPosts = JSON.stringify(data),
         error => this.errorMessage = <any>error,
-        () => console.log("Patch posts finished")
+        () => console.log('Patch posts finished')
       );
   }
 
@@ -95,7 +95,7 @@ export class RestObservableComponent implements OnInit {
       .subscribe(
         data => this.deletePosts = JSON.stringify(data),
         error => this.errorMessage = <any>error,
-        () => console.log("Delete post finished")
+        () => console.log('Delete post finished')
       );
   }
 

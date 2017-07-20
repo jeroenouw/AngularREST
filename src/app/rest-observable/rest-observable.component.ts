@@ -27,22 +27,22 @@ export class RestObservableComponent implements OnInit {
 
   // GET
   onGetPosts() {
-    this.getPosts = this.roservice.getPosts()      
+    this.getPosts = this.roservice.getPosts() 
       // .subscribe(
        // data => this.getComments = data,
        // error => this.errorMessage = <any>error,
-       // () => console.log("Get specific comments finished")
+       // () => console.log('Get specific comments finished')
       // );
   }
-    
+
   onGetSpecificComments() {
     this.getComments = this.roservice.getSpecificComments()
   }
-    
+
   onGetUsers() {
     this.getUsers = this.roservice.getUsers()
   }
-    
+
   onGetUsersPosts() {
     this.getUsersPosts = this.roservice.getUsersPosts()
   }
@@ -53,7 +53,7 @@ export class RestObservableComponent implements OnInit {
       .subscribe(
         data => this.postPosts = JSON.stringify(data),
         error => this.errorMessage = <any>error,
-        () => console.log("Post posts finished")
+        () => console.log('Post posts finished')
       );
   }
 
@@ -63,7 +63,7 @@ export class RestObservableComponent implements OnInit {
       .subscribe(
         data => this.putPosts = JSON.stringify(data),
         error => this.errorMessage = <any>error,
-        () => console.log("Put posts finished")
+        () => console.log('Put posts finished')
       );
   }
 
@@ -73,7 +73,7 @@ export class RestObservableComponent implements OnInit {
       .subscribe(
         data => this.patchPosts = JSON.stringify(data),
         error => this.errorMessage = <any>error,
-        () => console.log("Patch posts finished")
+        () => console.log('Patch posts finished')
       );
   }
 
@@ -83,7 +83,7 @@ export class RestObservableComponent implements OnInit {
       .subscribe(
         data => this.deletePosts = JSON.stringify(data),
         error => this.errorMessage = <any>error,
-        () => console.log("Delete post finished")
+        () => console.log('Delete post finished')
       );
   }
 
