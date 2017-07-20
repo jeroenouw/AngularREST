@@ -5,7 +5,8 @@
 
 # Angular REST API example with observables
 
-An [Angular 4](https://angular.io) application showing how to use a [REST(Restful)](https://en.wikipedia.org/wiki/Representational_state_transfer) [API](https://en.wikipedia.org/wiki/Application_programming_interface) with [observables](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html).
+An [Angular 4](https://angular.io) application showing how to use a [REST(Restful)](https://en.wikipedia.org/wiki/Representational_state_transfer) [API](https://en.wikipedia.org/wiki/Application_programming_interface) with [observables](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html).  
+Includes Angular 5.0.0-beta.0 (v4.3.2) with new HttpClient.
 
 ## Framework, Layout and data
 * Framework: [Angular 4](https://angular.io) - Angular is a framework for building client applications in HTML and TypeScript that compiles to JavaScript.

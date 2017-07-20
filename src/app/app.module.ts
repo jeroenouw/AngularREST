@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MdButtonModule, MdIconModule, MaterialModule } from '@angular/material';
 import 'hammerjs';
@@ -17,7 +17,7 @@ import { RestObservableService } from './rest-observable/rest-observable.service
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
     MdButtonModule, MdIconModule, MaterialModule
   ],
   providers: [
