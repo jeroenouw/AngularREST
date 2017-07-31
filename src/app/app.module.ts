@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MdButtonModule, MdIconModule, MaterialModule } from '@angular/material';
-import 'hammerjs';
 
 import { AppComponent } from './app.component';
 
