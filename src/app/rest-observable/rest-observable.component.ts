@@ -1,18 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { RestObservableService } from './rest-observable.service';
-import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-rest-observable',
-  templateUrl: './rest-observable.component.html',
-  styles: ['li { list-style-type: none; padding: 20px 0; }']
+  templateUrl: './rest-observable.component.html'
 })
 export class RestObservableComponent implements OnInit {
-  // getPosts = []; <--- Without async pipe
-  getPosts: Observable<any>;
-  getComments: Observable<any>;
-  getUsers: Observable<any>;
-  getUsersPosts: Observable<any>;
+  getPosts: string;
+  getComments: string;
+  getUsers: string;
+  getUsersPosts: string;
   postPosts: string;
   putPosts: string;
   patchPosts: string;
@@ -27,24 +24,39 @@ export class RestObservableComponent implements OnInit {
 
   // GET
   onGetPosts() {
-    this.getPosts = this.roservice.getPosts() 
-      // .subscribe(
-       // data => this.getComments = data,
-       // error => this.errorMessage = <any>error,
-       // () => console.log('Get specific comments finished')
-      // );
+    this.roservice.getPosts()
+      .subscribe(
+        data => this.getPosts = JSON.stringify(data),
+        error => this.errorMessage = <any>error,
+        () => console.log('Get posts finished')
+      );
   }
 
   onGetSpecificComments() {
-    this.getComments = this.roservice.getSpecificComments()
+    this.roservice.getSpecificComments()
+      .subscribe(
+        data => this.getComments = JSON.stringify(data),
+        error => this.errorMessage = <any>error,
+        () => console.log('Get specific comments finished')
+      );
   }
-
+    
   onGetUsers() {
-    this.getUsers = this.roservice.getUsers()
+    this.roservice.getUsers()
+      .subscribe(
+        data => this.getUsers = JSON.stringify(data),
+        error => this.errorMessage = <any>error,
+        () => console.log('Get users finished')
+      );
   }
-
+    
   onGetUsersPosts() {
-    this.getUsersPosts = this.roservice.getUsersPosts()
+    this.roservice.getUsersPosts()
+      .subscribe(
+        data => this.getUsersPosts = JSON.stringify(data),
+        error => this.errorMessage = <any>error,
+        () => console.log('Get users posts finished')
+      );
   }
 
   // POST

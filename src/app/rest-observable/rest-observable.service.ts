@@ -1,28 +1,26 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpInterceptor, HttpRequest, HttpHandler, HttpResponse, HttpHeaders } from '@angular/common/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
 
 @Injectable()
-export class RestObservableService /* implements HttpInterceptor */ {
-  headers: HttpHeaders;  
-  options: any;
-  
-  /* 
-  intercept(req: HttpRequest<any>, next: HttpHandler) {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'q=0.8;application/json;q=0.9' });
-    const clone = req.clone({ headers });
-    return next.handle(clone);
-  }
-  */
+export class RestObservableService {
+  headers: Headers;
+  options: RequestOptions;
 
   baseUrl = 'https://jsonplaceholder.typicode.com';
 
-  constructor(private http: HttpClient) {   
-    this.headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Accept': 'q=0.8;application/json;q=0.9' });
-    this.options = ({ headers: this.headers });
+  constructor(private http: Http) {
+    this.headers = new Headers({ 'Content-Type': 'application/json', 'Accept': 'q=0.8;application/json;q=0.9' });
+    this.options = new RequestOptions({ headers: this.headers });
+  }
+  
+  private extractData(res: Response) {
+    const body = res.json();
+    return body || {};
   }
 
   private handleError (error: any) {
@@ -36,25 +34,28 @@ export class RestObservableService /* implements HttpInterceptor */ {
   getPosts(): Observable<any> {
     return this.http
       .get(this.baseUrl + '/posts', this.options)
-      // With the new HttpClient, .map is no more.
+      .map(this.extractData)
       .catch(this.handleError);
   }
 
   getSpecificComments(): Observable<any> {
     return this.http
       .get(this.baseUrl + '/posts/3/comments', this.options)
+      .map(this.extractData)
       .catch(this.handleError);
   }
 
   getUsers(): Observable<any> {
     return this.http
       .get(this.baseUrl + '/users', this.options)
+      .map(this.extractData)
       .catch(this.handleError);
   }
 
   getUsersPosts(): Observable<any> {
     return this.http
       .get(this.baseUrl + '/users/1/posts', this.options)
+      .map(this.extractData)
       .catch(this.handleError);
   }
 
@@ -62,7 +63,8 @@ export class RestObservableService /* implements HttpInterceptor */ {
   postPosts(param: any): Observable<any> {
     const body = JSON.stringify(param);
     return this.http
-      .post(this.baseUrl + '/posts', body,this.options)
+      .post(this.baseUrl + '/posts', body, this.options)
+      .map(this.extractData)
       .catch(this.handleError);
   }
 
@@ -71,6 +73,7 @@ export class RestObservableService /* implements HttpInterceptor */ {
     const body = JSON.stringify(param);
     return this.http
       .put(this.baseUrl + '/posts/1', body, this.options)
+      .map(this.extractData)
       .catch(this.handleError);
   }
 
@@ -79,6 +82,7 @@ export class RestObservableService /* implements HttpInterceptor */ {
     const body = JSON.stringify(param);
     return this.http
       .patch(this.baseUrl + '/posts/2', body, this.options)
+      .map(this.extractData)
       .catch(this.handleError);
   }
 
@@ -86,6 +90,7 @@ export class RestObservableService /* implements HttpInterceptor */ {
   deletePosts(): Observable<any> {
     return this.http
       .delete(this.baseUrl + "/posts/1", this.options)
+      .map(this.extractData)
       .catch(this.handleError);
   }
 }
